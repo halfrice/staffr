@@ -1,0 +1,9 @@
+<h2>Staffr Lifeforms</h2>
+<ul class="lifeforms">
+  <li *ngFor="let lifeform of lifeforms"
+    [class.selected]="lifeform === selectedLifeform"
+    (click)="onSelect(lifeform)">
+    <span class="badge">{{lifeform.id}}</span> {{lifeform.name}}
+  </li>
+</ul>
+<lifeform-stats [lifeform]="selectedLifeform"></lifeform-stats>
