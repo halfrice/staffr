@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LifeformService } from '../lifeform.service';
 
@@ -14,7 +15,10 @@ export class LifeformsComponent implements OnInit {
   lifeforms: Lifeform[];
   selectedLifeform: Lifeform;
 
-  constructor(private lifeformService: LifeformService) { }
+  constructor(
+    private router: Router,
+    private lifeformService: LifeformService
+  ) {}
 
   getLifeforms(): void {
     this.lifeformService.getLifeforms().then(lifeforms => 
@@ -28,5 +32,9 @@ export class LifeformsComponent implements OnInit {
 
   onSelect(lifeform: Lifeform): void {
     this.selectedLifeform = lifeform;
+  }
+
+  gotoStats(): void {
+    this.router.navigate(['/stats', this.selectedLifeform.id]);
   }
 }

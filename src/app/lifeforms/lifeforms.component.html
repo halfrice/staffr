@@ -6,4 +6,9 @@
     <span class="badge">{{lifeform.id}}</span> {{lifeform.name}}
   </li>
 </ul>
-<lifeform-stats [lifeform]="selectedLifeform"></lifeform-stats>
+<div *ngIf="selectedLifeform">
+  <h2>
+    {{selectedLifeform.name | uppercase}} is selected.
+  </h2>
+  <button (click)="gotoStats()">View Stats</button>
+</div>

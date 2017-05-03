@@ -1,3 +1,7 @@
+:host {
+  display: block;
+  margin: 16px auto;
+}
 .selected {
   background-color: #000 !important;
   color: #00FF00;
