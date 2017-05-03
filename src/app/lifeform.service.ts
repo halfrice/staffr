@@ -8,7 +8,13 @@ export class LifeformService {
 
   constructor() { }
 
+  getLifeform(id: number): Promise<Lifeform> {
+    return this.getLifeforms()
+      .then(lifeforms => lifeforms.find(lifeform => lifeform.id === id));
+  }
+
   getLifeforms(): Promise<Lifeform[]> {
     return Promise.resolve(MOCK_LIFEFORMS);
   }
+
 }

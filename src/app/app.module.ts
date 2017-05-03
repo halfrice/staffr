@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LifeformsComponent } from './lifeforms/lifeforms.component';
 import { LifeformStatsComponent } from './lifeform-stats/lifeform-stats.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { LifeformService } from './lifeform.service';
 
 @NgModule({
@@ -14,15 +16,25 @@ import { LifeformService } from './lifeform.service';
     AppComponent,
     LifeformsComponent,
     LifeformStatsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      {
+    RouterModule.forRoot([ {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full' 
+      }, {
         path: 'lifeforms',
         component: LifeformsComponent
+      }, {
+        path: 'stats/:id',
+        component: LifeformStatsComponent 
+      }, {
+        path: 'dashboard',
+        component: DashboardComponent
       }
     ])
   ],

@@ -1,0 +1,10 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let lifeform of lifeforms" 
+    [routerLink]="['/stats', lifeform.id]"
+    class="col-1-4">
+    <div class="module lifeforms">
+      <h4>{{lifeform.name}}</h4>
+    </div>
+  </a>
+</div>
